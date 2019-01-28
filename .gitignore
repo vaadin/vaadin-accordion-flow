@@ -2,6 +2,7 @@ target/
 .idea/
 *.iml
 vaadin-accordion-flow-integration-tests/error-screenshots/
+vaadin-accordion-flow-integration-tests/.driver/
 **/build-tools/node
 **/build-tools/node_modules
 **/package-lock.json
@@ -11,3 +12,4 @@ vaadin-accordion-flow-integration-tests/error-screenshots/
 *.launch
 .settings/
 .vscode/*
+.DS_Store
