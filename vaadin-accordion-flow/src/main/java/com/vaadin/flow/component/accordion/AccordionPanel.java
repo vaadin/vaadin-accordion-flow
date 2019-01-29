@@ -21,12 +21,13 @@ import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.ComponentUtil;
 import com.vaadin.flow.component.HasEnabled;
+import com.vaadin.flow.component.HasTheme;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.details.Details;
 import com.vaadin.flow.shared.Registration;
 
 @Tag("vaadin-accordion-panel")
-public class AccordionPanel extends Details implements HasEnabled {
+public class AccordionPanel extends Details implements HasEnabled, HasTheme {
 
     public AccordionPanel() {
     }
@@ -41,5 +42,11 @@ public class AccordionPanel extends Details implements HasEnabled {
 
     public Registration addOpenedChangedListener(ComponentEventListener<AccordionPanelOpenedChanged> listener) {
         return ComponentUtil.addListener(this, AccordionPanelOpenedChanged.class, listener);
+    }
+
+    public enum ThemeVariant {
+        SMALL,
+        REVERSE,
+        FILLED
     }
 }
