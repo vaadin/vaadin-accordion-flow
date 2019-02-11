@@ -13,6 +13,8 @@ import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.Paragraph;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.notification.Notification.Position;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.radiobutton.RadioButtonGroup;
 import com.vaadin.flow.component.textfield.PasswordField;
 import com.vaadin.flow.component.textfield.TextField;
@@ -63,12 +65,9 @@ public class AccordionView extends DemoView {
                 .addThemeVariants(DetailsVariant.SMALL);
 
         // Multiple theme variants can be combined.
-        accordion.add("Green", createBox("green"))
-                .addThemeVariants(
-                        DetailsVariant.FILLED,
-                        DetailsVariant.REVERSE,
-                        DetailsVariant.SMALL);
-
+        accordion.add("Green", createBox("green")).addThemeVariants(
+                DetailsVariant.FILLED, DetailsVariant.REVERSE,
+                DetailsVariant.SMALL);
 
         // end-source-example
 
@@ -127,7 +126,6 @@ public class AccordionView extends DemoView {
         // BEGIN ACCORDION
         Accordion accordion = new Accordion();
 
-
         // ACCOUNT INFORMATION
         FormLayout accountForm = new FormLayout();
         accountForm.add(new TextField("Email"));
@@ -135,8 +133,7 @@ public class AccordionView extends DemoView {
         accountForm.add(new PasswordField("Password"));
         accountForm.add(new PasswordField("Confirm password"));
 
-        accordion.add("1 Account information",accountForm);
-
+        accordion.add("Account information", accountForm);
 
         // PROFILE INFORMATION
         FormLayout profileInfoForm = new FormLayout();
@@ -145,11 +142,10 @@ public class AccordionView extends DemoView {
         RadioButtonGroup<String> languageGroup = new RadioButtonGroup<>();
         languageGroup.setLabel("Language");
         languageGroup.setItems("English", "Finnish");
-        profileInfoForm.add(languageGroup );
+        profileInfoForm.add(languageGroup);
         profileInfoForm.add(new DatePicker("Date of birth"));
 
-        accordion.add("2 Profile information",profileInfoForm);
-
+        accordion.add("Profile information", profileInfoForm);
 
         // TOPICS OF INTEREST
         FormLayout topicsForm = new FormLayout();
@@ -162,31 +158,28 @@ public class AccordionView extends DemoView {
         topicsForm.add(new Checkbox("Sports"));
         topicsForm.add(new Checkbox("Technology", true));
 
-        accordion.add("3 Topics of interest",topicsForm);
-
+        accordion.add("Topics of interest", topicsForm);
 
         // TERMS AND CONDITIONS
         Paragraph paragraph = new Paragraph();
-        paragraph.setText("After all has been said and done, I agree that " +
-                "my data shall be safely stored for the sole purpose of " +
-                "my ultimate enjoyment.");
+        paragraph.setText("After all has been said and done, I agree that "
+                + "my data shall be safely stored for the sole purpose of "
+                + "my ultimate enjoyment.");
 
         Button submit = new Button("Sign up");
         submit.setEnabled(false);
         submit.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
         submit.addClickListener(e -> Notification.show("Complete! \uD83D\uDC4D",
                 4000, Position.BOTTOM_END));
-
         Checkbox consent = new Checkbox("I agree");
         consent.addValueChangeListener(e -> submit.setEnabled(e.getValue()));
 
-        Div termsDetails = new Div();
-        termsDetails.getStyle().set("display", "flex");
-        termsDetails.getStyle().set("flex-wrap", "wrap");
-        termsDetails.getStyle().set("justify-content", "space-between");
-        termsDetails.add(paragraph, consent, submit);
+        HorizontalLayout bottomPanel = new HorizontalLayout(consent, submit);
+        bottomPanel.setWidthFull();
+        bottomPanel.setFlexGrow(1, consent);
+        VerticalLayout terms = new VerticalLayout(paragraph, bottomPanel);
 
-        accordion.add("4 Terms and conditions",termsDetails);
+        accordion.add("Terms and conditions", terms);
         // end-source-example
 
         addCard("Complex form", accordion);
