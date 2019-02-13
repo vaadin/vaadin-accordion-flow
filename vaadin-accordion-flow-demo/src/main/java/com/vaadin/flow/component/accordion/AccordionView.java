@@ -28,16 +28,52 @@ public class AccordionView extends DemoView {
 
     @Override
     protected void initView() {
-        complexForm();
+        basicUsage();
         filledPannels();
         smallPannels();
         reversePannels();
+        complexForm();
+    }
+
+    private void basicUsage() {
+
+        // begin-source-example
+        // source-example-heading: Basics
+        Accordion accordion = new Accordion();
+
+        VerticalLayout personalInformationLayout = new VerticalLayout();
+        personalInformationLayout.add(
+            new TextField("Name"),
+            new TextField("Phone"),
+            new TextField("Email")
+        );
+        accordion.add("Personal Information", personalInformationLayout);
+
+        VerticalLayout billingAddressLayout = new VerticalLayout();
+        billingAddressLayout.add(
+            new TextField("Address"),
+            new TextField("City"),
+            new TextField("State"),
+            new TextField("Zip Code")
+        );
+        accordion.add("Billing Address", billingAddressLayout);
+
+        VerticalLayout paymenLayout = new VerticalLayout();
+        paymenLayout.add(
+            new Span("Not yet implemented")
+        );
+        AccordionPanel billingAddressPanel = accordion.add("Payment", paymenLayout);
+        billingAddressPanel.setEnabled(false);
+
+        // end-source-example
+
+        addCard("Basics", accordion);
     }
 
     private void filledPannels() {
 
         // begin-source-example
-        // source-example-heading: Filled Pannels
+        // source-example-heading: Theme variants - Filled Pannels
         Accordion accordion = new Accordion();
 
         accordion.add("Panel 1", new Span("Panel content"))
@@ -52,13 +88,13 @@ public class AccordionView extends DemoView {
 
         // end-source-example
 
-        addCard("Theme variants", "Filled Pannels", accordion);
+        addCard("Theme variants - Filled Pannels", accordion);
     }
 
     private void smallPannels() {
 
         // begin-source-example
-        // source-example-heading: Small Pannels
+        // source-example-heading: Theme variants - Small Pannels
         Accordion accordion = new Accordion();
 
         accordion.add("Panel 1", new Span("Panel content"))
@@ -72,13 +108,13 @@ public class AccordionView extends DemoView {
 
         // end-source-example
 
-        addCard("Theme variants", "Small Pannels", accordion);
+        addCard("Theme variants - Small Pannels", accordion);
     }
 
     private void reversePannels() {
 
         // begin-source-example
-        // source-example-heading: Reverse Pannels
+        // source-example-heading: Theme variants - Reverse Pannels
         Accordion accordion = new Accordion();
 
         accordion.add("Panel 1", new Span("Panel content"))
@@ -92,7 +128,7 @@ public class AccordionView extends DemoView {
 
         // end-source-example
 
-        addCard("Theme variants", "Reverse Pannels", accordion);
+        addCard("Theme variants - Reverse Pannels", accordion);
     }
 
     private void complexForm() {
