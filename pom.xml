@@ -36,8 +36,6 @@
     <modules>
         <module>vaadin-accordion-flow</module>
         <module>vaadin-accordion-flow-testbench</module>
-        <module>vaadin-accordion-flow-integration-tests</module>
-        <module>vaadin-accordion-flow-integration-tests/pom-bower-mode.xml</module>
         <module>vaadin-accordion-flow-demo</module>
     </modules>
 
@@ -51,5 +49,26 @@
             <url>https://oss.sonatype.org/content/repositories/vaadin-snapshots/</url>
         </repository>
     </repositories>
+
+    <profiles>
+        <profile>
+            <id>npm-it</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <modules>
+                <module>vaadin-accordion-flow-integration-tests</module>
+            </modules>
+        </profile>
+        <profile>
+            <id>bower-it</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <modules>
+                <module>vaadin-accordion-flow-integration-tests/pom-bower-mode.xml</module>
+            </modules>
+        </profile>
+    </profiles>
 
 </project>
