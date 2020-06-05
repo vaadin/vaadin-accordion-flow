@@ -58,11 +58,11 @@ public class AccordionView extends DemoView {
         );
         accordion.add("Billing Address", billingAddressLayout);
 
-        VerticalLayout paymenLayout = new VerticalLayout();
-        paymenLayout.add(
+        VerticalLayout paymentLayout = new VerticalLayout();
+        paymentLayout.add(
             new Span("Not yet implemented")
         );
-        AccordionPanel billingAddressPanel = accordion.add("Payment", paymenLayout);
+        AccordionPanel billingAddressPanel = accordion.add("Payment", paymentLayout);
         billingAddressPanel.setEnabled(false);
         add(accordion);
         // end-source-example
