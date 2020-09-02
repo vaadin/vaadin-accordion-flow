@@ -51,7 +51,7 @@
         <dependency>
             <groupId>org.webjars.bowergithub.vaadin</groupId>
             <artifactId>vaadin-accordion</artifactId>
-            <version>1.1.0</version>
+            <version>1.2.0</version>
         </dependency>
 
         <!--Pinned transitive webjars-->
@@ -68,7 +68,7 @@
         <dependency>
             <groupId>org.webjars.bowergithub.vaadin</groupId>
             <artifactId>vaadin-themable-mixin</artifactId>
-            <version>1.5.2</version>
+            <version>1.6.1</version>
         </dependency>
 
 
