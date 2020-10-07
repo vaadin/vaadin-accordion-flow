@@ -4,7 +4,7 @@ Accordion for Vaadin Flow is a UI component add-on for Vaadin which provides an 
 
 ⚠️ **This repository is deprecated**
 - Sources for this flow component can be found at https://github.com/vaadin/vaadin-flow-component
-- Tickets has been moved to the web component repository https://github.com/vaadin/<vaadin-component>
+- Tickets has been moved to the web component repository https://github.com/vaadin/vaadin-accordion/issues
 
 ### License & Author
 
